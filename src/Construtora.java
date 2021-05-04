@@ -22,7 +22,7 @@ public class Construtora {
     }
 
     public String toEndereco() {
-        return "Codigo: " + endereco.getCodigo() + "\nCEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro();
+        return "Codigo: " + endereco.getCodigo() + "\nCEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro() + "\nNúmero: " + endereco.getNumero();
     }
 
     public void setEndereco(Endereco endereco) {

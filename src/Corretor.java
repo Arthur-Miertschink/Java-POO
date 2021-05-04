@@ -1,11 +1,11 @@
 public class Corretor {
     private String nome;
-    private int matricula;
+    private String matricula;
     private float metaMensal;
     private float vendaMensal;
     private Endereco endereco;
 
-    public Corretor(String nome, int matricula, float metaMensal, float vendaMensal, Endereco endereco) {
+    public Corretor(String nome, String matricula, float metaMensal, float vendaMensal, Endereco endereco) {
         this.nome = nome;
         this.matricula = matricula;
         this.metaMensal = metaMensal;
@@ -25,11 +25,11 @@ public class Corretor {
         this.nome = nome;
     }
 
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
@@ -49,8 +49,8 @@ public class Corretor {
         this.vendaMensal = vendaMensal;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String toEndereco() {
+        return "Codigo: " + endereco.getCodigo() + "\nCEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro() + "\nNúmero: " + endereco.getNumero();
     }
 
     public void setEndereco(Endereco endereco) {
