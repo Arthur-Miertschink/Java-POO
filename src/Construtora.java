@@ -21,8 +21,8 @@ public class Construtora {
         this.cnpj = cnpj;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String toEndereco() {
+        return "Codigo: " + endereco.getCodigo() + "\nCEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro();
     }
 
     public void setEndereco(Endereco endereco) {

@@ -13,6 +13,6 @@ public class ConstroiSuperRapido {
 
 
 
-        System.out.println(construtora.getEndereco());
+        System.out.println(construtora.toEndereco());
     }
 }
