@@ -228,6 +228,76 @@ public class ConstroiSuperRapido {
         corretor10.setVendaMensal(4700.00F);
         corretor10.setEndereco(enderecoCorretor10);
 
+        Corretor corretor11 = new Corretor();
+        corretor11.setNome("Bruna Carla Heloise da Rocha");
+        corretor11.setMatricula("20200910");
+        corretor11.setMetaMensal(2500.00F);
+        corretor11.setVendaMensal(5000.00F);
+        corretor11.setEndereco(enderecoCorretor11);
+
+        Corretor corretor12 = new Corretor();
+        corretor12.setNome("Tatiane Milena Rayssa Vieira");
+        corretor12.setMatricula("20201111");
+        corretor12.setMetaMensal(10000.00F);
+        corretor12.setVendaMensal(8000.00F);
+        corretor12.setEndereco(enderecoCorretor12);
+
+        Corretor corretor13 = new Corretor();
+        corretor13.setNome("Bruna Lúcia Araújo");
+        corretor13.setMatricula("20200120");
+        corretor13.setMetaMensal(5000.00F);
+        corretor13.setVendaMensal(6500.00F);
+        corretor13.setEndereco(enderecoCorretor13);
+
+        Corretor corretor14 = new Corretor();
+        corretor14.setNome("Milena Stella Eduarda Nunes");
+        corretor14.setMatricula("20200308");
+        corretor14.setMetaMensal(1500.00F);
+        corretor14.setVendaMensal(4000.00F);
+        corretor14.setEndereco(enderecoCorretor14);
+
+        Corretor corretor15 = new Corretor();
+        corretor15.setNome("Murilo Bento Lima");
+        corretor15.setMatricula("20200704");
+        corretor15.setMetaMensal(8000.00F);
+        corretor15.setVendaMensal(7000.00F);
+        corretor15.setEndereco(enderecoCorretor15);
+
+        Corretor corretor16 = new Corretor();
+        corretor16.setNome("Daiane Emilly Aparício");
+        corretor16.setMatricula("20200505");
+        corretor16.setMetaMensal(20000.00F);
+        corretor16.setVendaMensal(15000.00F);
+        corretor16.setEndereco(enderecoCorretor16);
+
+        Corretor corretor17 = new Corretor();
+        corretor17.setNome("Vinicius Ricardo Nascimento");
+        corretor17.setMatricula("20200531");
+        corretor17.setMetaMensal(9500.00F);
+        corretor17.setVendaMensal(10000.00F);
+        corretor17.setEndereco(enderecoCorretor17);
+
+        Corretor corretor18 = new Corretor();
+        corretor18.setNome("Lucas Ryan Almada");
+        corretor18.setMatricula("20200720");
+        corretor18.setMetaMensal(15000.00F);
+        corretor18.setVendaMensal(4000.00F);
+        corretor18.setEndereco(enderecoCorretor18);
+
+        Corretor corretor19 = new Corretor();
+        corretor19.setNome("Lucas Geraldo Silveira");
+        corretor19.setMatricula("20201220");
+        corretor19.setMetaMensal(8000.00F);
+        corretor19.setVendaMensal(5000.00F);
+        corretor19.setEndereco(enderecoCorretor19);
+
+        Corretor corretor20 = new Corretor();
+        corretor20.setNome("Luan Levi Mário Silva");
+        corretor20.setMatricula("20201024");
+        corretor20.setMetaMensal(4000.00F);
+        corretor20.setVendaMensal(3000.00F);
+        corretor20.setEndereco(enderecoCorretor20);
+
         System.out.println(corretor10.getMatricula());
     }
 }
