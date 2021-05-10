@@ -5,7 +5,6 @@ public class Construtora {
     private String cnpj;
     private float totalVendido;
     private Endereco endereco;
-    private Corretor corretor;
 
     private List<Corretor> Corretores = new ArrayList();
 
