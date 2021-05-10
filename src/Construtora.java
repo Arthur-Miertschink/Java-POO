@@ -1,7 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Construtora {
     private String cnpj;
     private float totalVendido;
     private Endereco endereco;
+    private Corretor corretor;
+
+    private List<Corretor> Corretores = new ArrayList();
 
     public Construtora(String cnpj, Endereco endereco, float totalVendido) {
         this.cnpj = cnpj;
@@ -28,4 +34,17 @@ public class Construtora {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public void  InserirCorretor(int id, Corretor corretor){
+        Corretores.add(id, corretor);
+    }
+
+    public Corretor Buscar(int id){
+        return Corretores.get(id);
+    }
+
+    public void  Deletar(int id){
+        Corretores.remove(id);
+    }
+
 }
