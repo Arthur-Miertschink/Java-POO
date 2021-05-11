@@ -26,8 +26,12 @@ public class Construtora {
         this.cnpj = cnpj;
     }
 
+    public void setTotalVendido(float totalVendido) {
+        this.totalVendido = totalVendido;
+    }
+
     public String toEndereco() {
-        return "Codigo: " + endereco.getCodigo() + "\nCEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro() + "\nNúmero: " + endereco.getNumero();
+        return "CEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro() + "\nNúmero: " + endereco.getNumero();
     }
 
     public void setEndereco(Endereco endereco) {

@@ -11,8 +11,7 @@ public class Endereco {
 
     private static List<Endereco> Enderecos = new ArrayList();
 
-    public Endereco(int codigo, String cep, String rua, String bairro, int numero) {
-        this.codigo = codigo;
+    public Endereco(String cep, String rua, String bairro, int numero) {
         this.cep = cep;
         this.rua = rua;
         this.bairro = bairro;
@@ -22,14 +21,6 @@ public class Endereco {
 
     public Endereco() {
 
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public String getCep() {

@@ -4,7 +4,7 @@ public class ConstroiSuperRapido {
     public static void main(String[] args) {
 
         String opcaoUsuario = PegarOpcaoUsuario();
-
+        float vendaMensalConstrutora = 0.0f;
 
         while (!opcaoUsuario.toUpperCase().equals("X")){
 
@@ -18,13 +18,13 @@ public class ConstroiSuperRapido {
 
                     int idEndereco = 0;
 
-                    int codigoEndereco    = InOut.leInt("Insira o código referente ao endereço:");
                     String cepEndereco    = InOut.leString("Insira o CEP referente ao endereço:");
                     String ruaEndereco    = InOut.leString("Insira a rua referente ao endereço:");
                     String bairroEndereco = InOut.leString("Insira o bairro referente ao endereço:");
                     int numeroEndereco    = InOut.leInt("Insira o número referente ao endereço:");
+                    InOut.MsgDeInformacao("Inclusão realizada com sucesso!","Seu endereço foi associado ao código: " + idEndereco);
 
-                    Endereco baseEndereco = new Endereco(codigoEndereco,cepEndereco,ruaEndereco,bairroEndereco,numeroEndereco);
+                    Endereco baseEndereco = new Endereco(cepEndereco,ruaEndereco,bairroEndereco,numeroEndereco);
 
                     metodosEndereco.InserirEndereco(idEndereco, baseEndereco);
                     idEndereco++;
@@ -44,13 +44,25 @@ public class ConstroiSuperRapido {
 
                 case  "3":
 
+                    int idCorretor = 0;
+
                     String nome          = InOut.leString("Insira o nome do corretor:");
                     String matricula     = InOut.leString("Insira o número da matrícula do corretor:");
                     float metaMensal     = InOut.leFloat("Insira o valor da meta mensal do corretor:");
                     float vendaMensal    = InOut.leFloat("Insira o o valor da venda mensal do corretor:");
                     int enderecoCorretor = InOut.leInt("Insira o código referente ao endereço:");
 
-                    System.out.println(totalEnderecos);
+                    Corretor corretor = new Corretor(nome,matricula,metaMensal,vendaMensal,metodosEndereco.Buscar(enderecoCorretor));
+
+                    vendaMensalConstrutora += vendaMensal;
+
+                    Construtora construtora = new Construtora();
+                    construtora.setTotalVendido(vendaMensalConstrutora);
+                    construtora.InserirCorretor(idCorretor, corretor);
+
+                    idCorretor++;
+
+                    System.out.println(vendaMensalConstrutora);
                     break;
             }
              opcaoUsuario = PegarOpcaoUsuario();
