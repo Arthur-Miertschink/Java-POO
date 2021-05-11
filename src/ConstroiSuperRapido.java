@@ -3,23 +3,16 @@
 public class ConstroiSuperRapido {
     public static void main(String[] args) {
 
-        System.out.println("Bem vindo ao Constructor Prog!!!");
-        System.out.println("O que deseja fazer hoje:");
-        System.out.println("1 - Inserir Endereco");
-        System.out.println("2 - Cadastrar Construtora");
-        System.out.println("3 - Inserir corretor");
-        System.out.println("X - Sair do programa");
-
-        String opcaoMenu = InOut.leString("Insira a opção desejada abaixo:");
+        String opcaoUsuario = PegarOpcaoUsuario();
 
 
-        while (!opcaoMenu.toUpperCase().equals("X")){
+        while (!opcaoUsuario.toUpperCase().equals("X")){
 
             Endereco metodosEndereco = new Endereco();
             int totalEnderecos = Endereco.ContagemEnderecos();
             System.out.println(totalEnderecos);
 
-            switch(opcaoMenu){
+            switch(opcaoUsuario){
 
                 case "1":
 
@@ -36,12 +29,9 @@ public class ConstroiSuperRapido {
                     metodosEndereco.InserirEndereco(idEndereco, baseEndereco);
                     idEndereco++;
 
-                case "2":
+                    break;
 
-                    if (totalEnderecos == 0){
-                        InOut.MsgDeErro("Erro ao inserir Construtora","Parece que não há nenhum endereço cadastro. Para prosseguir com o cadastro da Construtora, primeiro cadastre um endereço!");
-                        break;
-                    }
+                case "2":
 
                     String cnpj  = InOut.leString("Insira o código referente ao CNPJ:");
                     int enderecoConstrutora = InOut.leInt("Insira o código referente ao endereço:");
@@ -50,14 +40,9 @@ public class ConstroiSuperRapido {
                     boolean resultadoValidacao = validarCNPJ.isCNPJ(cnpj);
 
                     System.out.println(totalEnderecos);
-
+                    break;
 
                 case  "3":
-
-                    if (totalEnderecos == 0){
-                        InOut.MsgDeErro("Erro ao inserir Construtora","Parece que não há nenhum endereço cadastro. Para prosseguir com o cadastro da Construtora, primeiro cadastre um endereço!");
-                        break;
-                    }
 
                     String nome          = InOut.leString("Insira o nome do corretor:");
                     String matricula     = InOut.leString("Insira o número da matrícula do corretor:");
@@ -66,18 +51,33 @@ public class ConstroiSuperRapido {
                     int enderecoCorretor = InOut.leInt("Insira o código referente ao endereço:");
 
                     System.out.println(totalEnderecos);
-
+                    break;
             }
-            break;
+             opcaoUsuario = PegarOpcaoUsuario();
         }
 
 
 
+        System.out.println("A Opção digitada é: " + opcaoUsuario);
 
+    }
 
-        System.out.println("A Opção digitada é: " + opcaoMenu);
+    private static String PegarOpcaoUsuario(){
+        System.out.println("Bem vindo ao Constructor Prog!!!");
+        System.out.println("O que deseja fazer hoje:");
+        System.out.println("1 - Inserir Endereco");
+        System.out.println("2 - Cadastrar Construtora");
+        System.out.println("3 - Inserir corretor");
+        System.out.println("X - Sair do programa");
 
+        String opcaoMenu = InOut.leString("Insira a opção desejada abaixo:");
+
+        return opcaoMenu;
 
 
     }
+
+
+
+
 }
