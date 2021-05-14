@@ -2,20 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Construtora {
+
+    private String nome;
     private String cnpj;
     private float totalVendido;
     private Endereco endereco;
 
-    private List<Corretor> Corretores = new ArrayList();
+    List<Corretor> Corretores = new ArrayList<Corretor>();
 
-    public Construtora(String cnpj, Endereco endereco, float totalVendido) {
+    public Construtora(String nome, String cnpj, float totalVendido, Endereco endereco) {
+        this.nome = nome;
         this.cnpj = cnpj;
         this.totalVendido = totalVendido;
         this.endereco = endereco;
     }
 
-    public Construtora() {
+    public Construtora(){
 
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCnpj() {
@@ -26,28 +37,31 @@ public class Construtora {
         this.cnpj = cnpj;
     }
 
+    public float getTotalVendido() {
+        return totalVendido;
+    }
+
     public void setTotalVendido(float totalVendido) {
         this.totalVendido = totalVendido;
     }
 
-    public String toEndereco() {
-        return "CEP: " + endereco.getCep() + "\nRua: " + endereco.getRua() + "\nBairro: " + endereco.getBairro() + "\nNúmero: " + endereco.getNumero();
+    public Endereco getEndereco() {
+        return endereco;
     }
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
-    public void  InserirCorretor(int id, Corretor corretor){
-        Corretores.add(id, corretor);
+    public void inserirCorretor(Corretor corretor){
+        Corretores.add(corretor);
     }
 
-    public Corretor Buscar(int id){
+    public Corretor retornaPorid(int id){
         return Corretores.get(id);
-    }
+    };
 
-    public void  Deletar(int id){
-        Corretores.remove(id);
-    }
+
+
 
 }

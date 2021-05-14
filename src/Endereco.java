@@ -1,42 +1,31 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Endereco {
-    private int codigo;
-    private String cep;
-    private String rua;
+
+    private String nomeRua;
     private String bairro;
-    private int numero;
-    private boolean excluido;
+    private String nomeCidade;
+    private String siglaEstado;
+    private String cep;
 
-    private static List<Endereco> Enderecos = new ArrayList();
 
-    public Endereco(String cep, String rua, String bairro, int numero) {
-        this.cep = cep;
-        this.rua = rua;
+
+    public Endereco(String nomeRua, String bairro, String nomeCidade, String siglaEstado, String cep) {
+        this.nomeRua = nomeRua;
         this.bairro = bairro;
-        this.numero = numero;
-        this.excluido = false;
-    }
-
-    public Endereco() {
-
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
+        this.nomeCidade = nomeCidade;
+        this.siglaEstado = siglaEstado;
         this.cep = cep;
     }
 
-    public String getRua() {
-        return rua;
+    public Endereco(){
+
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public String getNomeRua() {
+        return nomeRua;
+    }
+
+    public void setNomeRua(String nomeRua) {
+        this.nomeRua = nomeRua;
     }
 
     public String getBairro() {
@@ -47,25 +36,29 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public int getNumero() {
-        return numero;
+    public String getNomeCidade() {
+        return nomeCidade;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNomeCidade(String nomeCidade) {
+        this.nomeCidade = nomeCidade;
     }
 
-    public void InserirEndereco(int id, Endereco endereco){
-        Enderecos.add(id, endereco);
+    public String getSiglaEstado() {
+        return siglaEstado;
     }
 
-    public Endereco Buscar(int id){
-        return Enderecos.get(id);
+    public void setSiglaEstado(String siglaEstado) {
+        this.siglaEstado = siglaEstado;
     }
 
-    public void Deletar(int id){
-        Enderecos.remove(id);
+    public String getCep() {
+        return cep;
     }
 
-    public static int ContagemEnderecos(){return Enderecos.size();}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+
 }
