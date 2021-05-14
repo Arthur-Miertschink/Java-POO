@@ -37,7 +37,6 @@ public class Menu {
                     construtora.setTotalVendido(totalVendido);
                     construtora.setEndereco(enderecoCadastro);
 
-                    System.out.println(construtora.getNome());
                 }
 
                 case "2" -> {
@@ -73,8 +72,42 @@ public class Menu {
                 }
 
                 case "4" -> {
-                    System.out.println("O total vendido pela empresa é: " + construtora.getTotalVendido());
+                    InOut.MsgDeInformacao("Total vendido pela empresa", "O total vendido pela empresa é: " + construtora.getTotalVendido());
                 }
+
+                case "5" -> {
+                    if (construtora.Corretores.size() != 0) {
+                        for (Corretor corretor : construtora.Corretores) {
+                            InOut.MsgDeInformacao(
+                                    "Lista de corretores", "Id: " + construtora.Corretores.indexOf(corretor)
+                                    + " Nome: " + corretor.getNome()
+                                    + " Matrícula: " + corretor.getMatricula()
+                            );
+                        }
+                    } else {
+                        InOut.MsgDeAviso("Opa! Não consigo fazer isso", "Não há nenhum corretor cadastrado para ser exibido.");
+                    }
+                }
+
+                case "6" -> {
+
+                    if (construtora.Corretores.size() != 0){
+                        int idDoCorretor = InOut.leInt("Informe o id do corretor:");
+                        float novoValor = InOut.leFloat("Informe o valor novo:");
+
+                        for (Corretor corretor : construtora.Corretores){
+                            if (idDoCorretor == construtora.Corretores.indexOf(corretor)){
+                                corretor.setTotalVendas(novoValor);
+                            }
+                        }
+
+                    }
+                    else {
+                        InOut.MsgDeAviso("Opa! Não consigo fazer isso", "Não há nenhum corretor cadastrado.");
+                    }
+
+                }
+
 
 
             }
@@ -87,15 +120,18 @@ public class Menu {
     }
 
     private static String PegarOpcaoUsuario(){
-        System.out.println("Bem vindo ao Constructor Prog!!!");
-        System.out.println("O que deseja fazer hoje:");
-        System.out.println("1 - Cadastrar Construtora");
-        System.out.println("2 - Cadastrar Corretor");
-        System.out.println("3 - Atualizar total vendido da Construtora");
-        System.out.println("4 - Visualizar total vendido pela empresa");
-        System.out.println("X - Sair do programa");
 
-        String opcaoMenu = InOut.leString("Insira a opção desejada abaixo:");
+        String opcaoMenu = InOut.leString(
+                "Bem vindo ao Constructor Prog!!!" + "\n" + "\n"
+                + "O que deseja fazer hoje:" + "\n"
+                + "1 - Cadastrar construtora" + "\n"
+                + "2 - Cadastrar corretor" + "\n"
+                + "3 - Atualizar total vendido da construtora" + "\n"
+                + "4 - Visualizar total vendido pela construtora" + "\n"
+                + "5 - Exibir todos os corretores" + "\n"
+                + "6 - Atualizar venda mensal do corretor" + "\n"
+                + "X - Sair do programa" + "\n" + "\n"
+        );
 
         return opcaoMenu;
 
