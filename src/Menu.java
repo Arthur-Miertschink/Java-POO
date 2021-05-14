@@ -1,5 +1,3 @@
-import java.awt.image.renderable.RenderableImageOp;
-
 public class Menu {
 
     public static void main(String[] args) {
@@ -8,7 +6,7 @@ public class Menu {
 
         Construtora construtora = new Construtora();
 
-        while (!opcaoMenu.toUpperCase().equals("X")){
+        while (!opcaoMenu.equalsIgnoreCase("X")){
 
             switch (opcaoMenu){
 
@@ -71,9 +69,7 @@ public class Menu {
 
                 }
 
-                case "4" -> {
-                    InOut.MsgDeInformacao("Total vendido pela empresa", "O total vendido pela empresa é: " + construtora.getTotalVendido());
-                }
+                case "4" -> InOut.MsgDeInformacao("Total vendido pela empresa", "O total vendido pela empresa é: " + construtora.getTotalVendido());
 
                 case "5" -> {
                     if (construtora.Corretores.size() != 0) {
@@ -121,22 +117,25 @@ public class Menu {
 
     private static String PegarOpcaoUsuario(){
 
-        String opcaoMenu = InOut.leString(
-                "Bem vindo ao Constructor Prog!!!" + "\n" + "\n"
-                + "O que deseja fazer hoje:" + "\n"
-                + "1 - Cadastrar construtora" + "\n"
-                + "2 - Cadastrar corretor" + "\n"
-                + "3 - Atualizar total vendido da construtora" + "\n"
-                + "4 - Visualizar total vendido pela construtora" + "\n"
-                + "5 - Exibir todos os corretores" + "\n"
-                + "6 - Atualizar venda mensal do corretor" + "\n"
-                + "X - Sair do programa" + "\n" + "\n"
-        );
+        return InOut.leString(
+                """
+                        Bem vindo ao Constructor Prog!!!
 
-        return opcaoMenu;
+                        O que deseja fazer hoje:
+                        1 - Cadastrar construtora
+                        2 - Cadastrar corretor
+                        3 - Atualizar total vendido da construtora
+                        4 - Visualizar total vendido pela construtora
+                        5 - Exibir todos os corretores
+                        6 - Atualizar venda mensal do corretor
+                        X - Sair do programa
+
+                        """
+        );
 
 
     }
+
 
 
 
