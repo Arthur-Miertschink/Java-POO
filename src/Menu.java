@@ -16,7 +16,7 @@ public class Menu {
                     String nomeDoBairro = InOut.leString("Digite o nome do bairro: ");
                     String nomeDaCidade = InOut.leString("Digite o nome da cidade: ");
                     String siglaDoEstado = InOut.leString("Digite a sigla do estado: ");
-                    String numeroDoCep = InOut.leString("Digite o CEP");
+                    String numeroDoCep = InOut.leString("Digite o CEP: ");
 
 
                     Endereco enderecoCadastro = new Endereco(nomeDaRua, nomeDoBairro, nomeDaCidade, siglaDoEstado, numeroDoCep);
@@ -27,7 +27,7 @@ public class Menu {
                     while (!ValidaCPNJ.isCNPJ(cnpj)) {
                         cnpj = InOut.leString("Cnpj informado é inválido, digite novamente: ");
                     }
-                    float totalVendido = InOut.leFloat("Digite o total vendido da corretora: ");
+                    float totalVendido = 0;
 
 
                     construtora.setNome(nomeDaConstrutora);
@@ -38,34 +38,44 @@ public class Menu {
                 }
 
                 case "2" -> {
+                    if (construtora.getCnpj() != null){
 
-                    String nomeDaRua = InOut.leString("Digite o nome da rua: ");
-                    String nomeDoBairro = InOut.leString("Digite o nome do bairro: ");
-                    String nomeDaCidade = InOut.leString("Digite o nome da cidade: ");
-                    String siglaDoEstado = InOut.leString("Digite a sigla do estado: ");
-                    String numeroDoCep = InOut.leString("Digite o CEP");
+                        String nomeDaRua = InOut.leString("Digite o nome da rua: ");
+                        String nomeDoBairro = InOut.leString("Digite o nome do bairro: ");
+                        String nomeDaCidade = InOut.leString("Digite o nome da cidade: ");
+                        String siglaDoEstado = InOut.leString("Digite a sigla do estado: ");
+                        String numeroDoCep = InOut.leString("Digite o CEP: ");
 
 
-                    Endereco enderecoCadastro = new Endereco(nomeDaRua, nomeDoBairro, nomeDaCidade, siglaDoEstado, numeroDoCep);
+                        Endereco enderecoCadastro = new Endereco(nomeDaRua, nomeDoBairro, nomeDaCidade, siglaDoEstado, numeroDoCep);
 
-                    String nome = InOut.leString("Digite o nome do Corretor: ");
-                    String matricula = InOut.leString("Digite a matrícula do corretor: ");
-                    float metaMensal = InOut.leFloat("Digite a meta mensal do corretor: ");
-                    float totalDeVendas = InOut.leFloat("Digite o total de vendas do corretor: ");
+                        String nome = InOut.leString("Digite o nome do Corretor: ");
+                        String matricula = InOut.leString("Digite a matrícula do corretor: ");
+                        float metaMensal = InOut.leFloat("Digite a meta mensal do corretor: ");
+                        float totalDeVendas = InOut.leFloat("Digite o total de vendas do corretor: ");
 
-                    Corretor criarCorretor = new Corretor(nome, matricula, metaMensal,totalDeVendas, enderecoCadastro);
+                        Corretor criarCorretor = new Corretor(nome, matricula, metaMensal,totalDeVendas, enderecoCadastro);
 
-                    construtora.inserirCorretor(criarCorretor);
+                        construtora.inserirCorretor(criarCorretor);
+
+                        construtora.calcularTotalVendido();
+                    }
+                    else {
+                        InOut.MsgDeErro("Não há contrutora cadastrada!", "Não há nenhuma construtora criada. Crie uma construtora antes de adicionar os corretores.");
+                    }
+
 
                 }
 
-                case "3" -> construtora.calcularTotalVendido();
 
-                case "4" -> construtora.exibirTotalVendido();
+                case "3" -> construtora.exibirTotalVendido();
 
-                case "5" -> construtora.exibirCorretores();
+                case "4" -> construtora.exibirCorretores();
 
-                case "6" -> construtora.atualizarVendasCorretor();
+                case "5" ->{
+                    construtora.atualizarVendasCorretor();
+                    construtora.calcularTotalVendido();
+                }
 
             }
 
@@ -85,10 +95,9 @@ public class Menu {
                         O que deseja fazer hoje:
                         1 - Cadastrar construtora
                         2 - Cadastrar corretor
-                        3 - Atualizar total vendido da construtora
-                        4 - Visualizar total vendido pela construtora
-                        5 - Exibir todos os corretores
-                        6 - Atualizar venda mensal do corretor
+                        3 - Visualizar total vendido pela construtora
+                        4 - Exibir todos os corretores
+                        5 - Atualizar venda mensal do corretor
                         X - Sair do programa
 
                         """

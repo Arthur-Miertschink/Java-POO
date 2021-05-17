@@ -70,7 +70,7 @@ public class Construtora {
 
         }
 
-        setTotalVendido(totalVendidoCorretores + totalVendido);
+        setTotalVendido(totalVendidoCorretores);
 
     }
 
