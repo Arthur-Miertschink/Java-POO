@@ -38,6 +38,7 @@ public class Menu {
                 }
 
                 case "2" -> {
+
                     String nomeDaRua = InOut.leString("Digite o nome da rua: ");
                     String nomeDoBairro = InOut.leString("Digite o nome do bairro: ");
                     String nomeDaCidade = InOut.leString("Digite o nome da cidade: ");
@@ -55,56 +56,16 @@ public class Menu {
                     Corretor criarCorretor = new Corretor(nome, matricula, metaMensal,totalDeVendas, enderecoCadastro);
 
                     construtora.inserirCorretor(criarCorretor);
-                }
-
-                case "3" -> {
-                    float totalVendidoCorretores = 0;
-
-                    for (Corretor corretor : construtora.Corretores){
-                        totalVendidoCorretores += corretor.getTotalVendas();
-
-                    }
-
-                    construtora.setTotalVendido(totalVendidoCorretores);
 
                 }
 
-                case "4" -> InOut.MsgDeInformacao("Total vendido pela empresa", "O total vendido pela empresa é: " + construtora.getTotalVendido());
+                case "3" -> construtora.calcularTotalVendido();
 
-                case "5" -> {
-                    if (construtora.Corretores.size() != 0) {
-                        for (Corretor corretor : construtora.Corretores) {
-                            InOut.MsgDeInformacao(
-                                    "Lista de corretores", "Id: " + construtora.Corretores.indexOf(corretor)
-                                    + " Nome: " + corretor.getNome()
-                                    + " Matrícula: " + corretor.getMatricula()
-                            );
-                        }
-                    } else {
-                        InOut.MsgDeAviso("Opa! Não consigo fazer isso", "Não há nenhum corretor cadastrado para ser exibido.");
-                    }
-                }
+                case "4" -> construtora.exibirTotalVendido();
 
-                case "6" -> {
+                case "5" -> construtora.exibirCorretores();
 
-                    if (construtora.Corretores.size() != 0){
-                        int idDoCorretor = InOut.leInt("Informe o id do corretor:");
-                        float novoValor = InOut.leFloat("Informe o valor novo:");
-
-                        for (Corretor corretor : construtora.Corretores){
-                            if (idDoCorretor == construtora.Corretores.indexOf(corretor)){
-                                corretor.setTotalVendas(novoValor);
-                            }
-                        }
-
-                    }
-                    else {
-                        InOut.MsgDeAviso("Opa! Não consigo fazer isso", "Não há nenhum corretor cadastrado.");
-                    }
-
-                }
-
-
+                case "6" -> construtora.atualizarVendasCorretor();
 
             }
 

@@ -58,4 +58,5 @@ public class Corretor {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
 }
